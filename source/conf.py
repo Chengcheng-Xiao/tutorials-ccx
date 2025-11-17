@@ -35,7 +35,7 @@ numfig = True
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
-html_logo = '_static/onetep_logo.svg'
+html_logo = '_static/onetep_logo.png'
 html_theme_options = {
     'logo_only': True,
     'display_version': True,
