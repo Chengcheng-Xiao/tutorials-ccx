@@ -21,7 +21,7 @@ computational cost of the calculation and small systems (from unit cells
 upwards) can be efficiently simulated.
 
 ONETEP has two modes for k-point sampling the Brillouin zone: the Plane wave
-mode and the Tight-binding mode. The underlying theory for these two modes are
+mode and the Tight-binding mode. The underlying theory for these two modes is
 described in the `documentation
 <https://docs.onetep.org/kpoints_and_spin.html>`_. In order to launch a
 calculation with k-points sampling, the user must first choose between these
@@ -32,9 +32,9 @@ Here, taking FCC silicon as an example, we will show how to set up a calculation
 with k-points. The full input can be found in the file :download:`Si.dat
 <_static/tutorial_3/Si.dat>`.
 
-Focusing on the input file, there are few imporatnt keywords that are required
+Focusing on the input file, there are a few important keywords that are required
 for k-point sampled calculation. First, for k-point sampling, NGWFs need to be
-complex. This is done by: 
+complex. This is done by:
 
 ::
 
@@ -47,7 +47,7 @@ calculation (PW/TB). Here we use PW method for FCC silicon, which is set by
 
    kpoint_method : PW 
 
-Depending your set up you would like to set your NGWFs to be (selective)
+Depending on your set up you would like to set your NGWFs to be (selective)
 extended. Note that only PW mode can and should be used when extended NGWFs are
 used, TB mode does not support extended NGWFs. Here we set the NGWFs to be fully
 extended along three directions
@@ -69,7 +69,7 @@ where :code:`kpoint_grid_size` is the number of k-points in each direction, and
 :code:`kpoint_gamma_centred` to force a gamma-centred grid. By default, ONETEP
 will use a Monkhorst-Pack grid.
 
-Alternatively, you can tell ONETEP explicit the k-point grid you want to use by
+Alternatively, you can tell ONETEP explicitly the k-point grid you want to use by
 providing a list of k-points and their weights. This is done by
 
 ::
@@ -79,7 +79,7 @@ providing a list of k-points and their weights. This is done by
    ... 
    %endblock kpoints_list
 
-It is usually a good idea to use kpar parallization where certain number of
+It is usually a good idea to use kpar parallelization where certain number of
 ONETEP instances (termed kpars) are launched together to perform the calculation
 for a subset of k-points. The number of kpars is set by
 
@@ -93,17 +93,17 @@ If kpar is used, the full output of each kpar will only be printed out if
 of the first kpar will be printed out.
    
 
-Best pratices 
--------------
+Best practices 
+---------------
 
-It is usually a good idea to initilaise the calculation with linear combination
+It is usually a good idea to initialise the calculation with linear combination
 of atomic orbitals in reciprocal space
 
 ::
 
    pub_ngwfs_init_recip : T
 
-If you are using EDFT, it is usually a good idead to use 
+If you are using EDFT, it is usually a good idea to use
 
 ::
 
@@ -112,11 +112,11 @@ If you are using EDFT, it is usually a good idead to use
    occ_mix : 1.0
 
 A lot of times it is also a good idea to run direct full matrix inversion rather
-thant Hotelling method:
+than the Hotelling method:
 
 ::
 
-   maxit_hotelling = 0
+   maxit_hotelling : 0
 
 Band structure calculations 
 ---------------------------
@@ -135,7 +135,7 @@ k-point path for a given :code:`.dat` input file.
 
    python kp_gen.py -c seedname.dat -v -r 0.05 --hybrid 
 
-The output file :code:`KPOINTS.k_path` containes the k-point path for the band
+The output file :code:`KPOINTS.k_path` contains the k-point path for the band
 structure calculation and the label of high-symmetry points which can be added
 to the :code:`.dat` ONETEP input file.
 
@@ -160,7 +160,7 @@ And the resulting band structure is shown in the figure below.
    :alt: Silicon_Bands
    :name: fig:T3_1
    :width: 80.0%
-   :target: _static/tutorial_3/nanoribbons.png
+   :target: _static/tutorial_3/Silicon_Bands.png
    :align: center
 
    Band structure of FCC silicon calculated using ONETEP with k-point sampling.
