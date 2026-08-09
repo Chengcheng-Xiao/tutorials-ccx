@@ -11,6 +11,11 @@ build
 *.o
 *.so
 
+# Python #
+##########
+__pycache__/
+*.py[cod]
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
